@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper,twoside]{jpcbook}
+\input{package}
+\def\theaipage{\string\hyperpage{\thepage}} 
+\makeindex[columns=2,name=keywords,intoc=true,title=Keywords Index]
+\makeindex[columns=2,name=authors,intoc=true,title=Authors Index]
+\newcommand{\eunumerical}{keywords}
+\newcommand{\eualphabetical}{authors}
+\title{Book of Abstracts}
+\subtitle{International Conference}
+\company{Company}
+\local{Portugal}
+\date{2023}
+\link{link}
+\setcounter{secnumdepth}{-1}
+\hypersetup{linktocpage=true,colorlinks,linkcolor=blue,urlcolor=blue,citecolor=blue}
+
+\begin{document}
+    \input{excel/upload-excel}
+    \definecolor{royalazure}{RGB}{8,71,155}% Azul ol2a
+    \definecolor{orange}{RGB}{233,128,34} %laranja ol2a
+    \beforepreface
+    \pagenumbering{roman}
+    \prefacesection*{Editors}
+        \input{chapters/editors}
+    \cleardoublepage
+    \afterpreface
+    \bodystart
+    \pagenumbering{arabic}
+    \input{chapters/welcome}
+    \cleardoublepage
+    \input{chapters/committees}
+    \cleardoublepage
+    \makeatletter\@openrightfalse
+        \addcontentsline{toc}{chapter}{Invited Plenary Lectures}
+        \part*{Invited Plenary Lectures}
+        \cleardoublepage
+    \@openrighttrue\makeatother 
+    \input{chapters/invited-plenary-lectures}
+    \cleardoublepage
+    \makeatletter\@openrightfalse
+         \addcontentsline{toc}{chapter}{Special Sessions}
+        \part*{Special Sessions}
+        \cleardoublepage
+    \@openrighttrue\makeatother 
+    \input{chapters/special-sessions}
+    \cleardoublepage
+    \makeatletter\@openrightfalse
+        \addcontentsline{toc}{chapter}{Abstracts}
+        \part*{Abstracts}
+        \cleardoublepage
+    \@openrighttrue\makeatother 
+    \input{chapters/abstracts}
+    \cleardoublepage
+    \indexspace
+    \printindex[\eualphabetical]
+    \cleardoublepage
+    \indexspace
+    \printindex[\eunumerical]
+    \cleardoublepage
+    \input{chapters/sponsors}
+\end{document}

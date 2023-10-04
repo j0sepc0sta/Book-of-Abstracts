@@ -1,0 +1,54 @@
+\NeedsTeXFormat{LaTeX2e}
+\def\date#1{\gdef\@date{#1}}
+\def\local#1{\gdef\@local{#1}}
+\def\link#1{\gdef\@link{#1}}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\company#1{\gdef\@company{#1}}
+\def\coverpage{\thispagestyle{empty}  
+                \begin{center}
+                    \vspace*{110pt}
+                    {\Huge{\bf \color{royalazure}\@title}}\\
+                    \vfill
+                    {\LARGE{\bf\color{orange}\@subtitle}}\\
+                    \vfill
+                    {\large\@local}\\
+                    {\large\@date}\\
+                    \vfill
+                    {\large\@link}\\
+                \end{center}
+                \cleardoublepage 
+} 
+\def\titlep{\thispagestyle{empty}
+            \begin{center}
+                {\bf \color{white}~}
+                \vfill
+                {\huge{\bf \@subtitle}}\\
+                \vfill
+                {\huge{\bf\@company}}\\
+                \vspace{0.5cm}
+                {\huge{\bf\@title}}\\
+                \vfill
+            \end{center}
+            \cleardoublepage                
+        }
+\def\beforepreface{
+    \pagenumbering{roman}
+    \pagestyle{fancy}
+    \fancyhf{} 
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \coverpage
+    \titlep
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \fancyhead[RO]{\nouppercase{\@company}}
+    \fancyhead[LE]{\nouppercase{\@subtitle}}
+    \fancyfoot[LE,RO]{\nouppercase{\thepage}}
+    \fancypagestyle{plain}{ 
+    \fancyhf{}
+    \fancyfoot[R]{\nouppercase{\thepage}}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.4pt}} 
+}
+\endinput

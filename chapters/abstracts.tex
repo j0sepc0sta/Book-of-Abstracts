@@ -1,0 +1,13 @@
+\DTLforeach*{abstracts}
+{\title=title,\authors=authors,\keywords=keywords,\affiliation=affiliation,\abstract=abstract}
+{\begin{conf-abstract}[]
+{\title}
+{\authors}
+{\affiliation}
+\abstract
+
+\mbox{}\linebreak
+\noindent {\bf Keywords:}~\keywords
+\clearpage
+\end{conf-abstract}
+}
